@@ -1,0 +1,14 @@
+course: CA
+exercise: 1
+date: 2019-11-09
+author: Reiss Greaves, 2253147
+author: Sam George, 2261522
+author: Nathan Moses, 2254729
+
+Every part of the exercise has been completed, including : both controller circuits, both simulation drivers, test data and a main function that runs all tests. It compiles and works correctly. 
+
+Controller 1 was tested for normal input of a single reset input to check states cycle and are ordered correctly, as well as a reset input during the middle of a state cycle to ensure the state resets to the first state.
+
+Controller 2 was tested for normal input with a single walk request at two seperate cycles to ensure state changes correctly and is based off walkRequest input and not based off of cycle number, as well as walkRequest incrementing. It was also tested for behaviour when walkRequest is pressed whilst green light is not set. A test to ensure reset input works correctly: sets to green state, clears walkCounter etc.Finally there is an extra test to checks counter does in fact work for up to its 16th bit correctly.
+
+All aspects seem correct.

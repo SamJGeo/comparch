@@ -1,4 +1,4 @@
-module Traffic2 where
+module TrafficLight where
 
 import HDL.Hydra.Core.Lib
 import HDL.Hydra.Circuits.Combinational
@@ -22,10 +22,10 @@ cbit reset cin = (cout,s)
     s = dff (mux1 reset s' zero)
     (cout,s') = halfAdd cin s
 
-trafficLightsV2 reset walkRequest = (red,amber,green,walk,stop,counter)
+controller2 reset walkRequest = (red,amber,green,walk,stop,counter)
   where
     walk = red
-    stop = inv walk
+    stop = or2 amber green
     red = or3 r1 r2 r3
     amber = or2 a1 a2
     green = g1
@@ -39,7 +39,8 @@ trafficLightsV2 reset walkRequest = (red,amber,green,walk,stop,counter)
     a2 = dff (and2 reset' r3)
     reset' = inv reset
 
-trafficLightsV1 reset = (red,amber,green)
+	
+controller1 reset = (red,amber,green)
     where
       red = or4 r1 r2 r3 r4
       amber = or2 a1 a2
